@@ -28,8 +28,8 @@
             </li>
           </ul>
           <div class="text-right nav-btn text-sm-left">
-                                                  <a href="login" class="btn">Log In</a>
-                                              <a href="register.html" class="btn">Sign In</a> 
+                                                  <a href="{{route('login')}}" class="btn">Log In</a>
+                                              <a href="{{route('register')}}" class="btn">Sign In</a> 
                                                                   </div>
         </div>
       </div>

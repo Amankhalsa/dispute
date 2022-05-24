@@ -33,3 +33,12 @@ Route::controller(HomeController::class)->group(function () {
     // Affiliate Program
     Route::get('/affiliate-program', 'affiliate_program')->name('front.affiliate_program');
 });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
