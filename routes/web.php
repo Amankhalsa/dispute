@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\backend\BackendController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +41,20 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        // return view('dashboard');
+        return redirect()->route('backend.admin.dashboard');
     })->name('dashboard');
 });
+
+
+//======================== admin dashboard routes ========================
+Route::group(['prefix'=>'admin', 'middleware'=>['auth','isAdmin']], function(){
+Route::controller(BackendController::class)->group(function () {
+
+// Admin Dashboard
+Route::get('/dashboard', 'admin_dashboard')->name('backend.admin.dashboard');
+
+
+});
+});
+//======================== admin dashboard routes ========================

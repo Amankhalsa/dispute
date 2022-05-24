@@ -29,7 +29,7 @@
           </ul>
           <div class="text-right nav-btn text-sm-left">
                                                   <a href="{{route('login')}}" class="btn">Log In</a>
-                                              <a href="{{route('register')}}" class="btn">Sign In</a> 
+                                              <a href="{{route('register')}}" class="btn">Sign up</a> 
                                                                   </div>
         </div>
       </div>
