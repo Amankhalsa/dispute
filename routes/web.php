@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\backend\BackendController;
+use App\Http\Controllers\frontend\FrontendController;
+use App\Http\Controllers\UserDashController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,16 @@ use App\Http\Controllers\backend\BackendController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::controller(HomeController::class)->group(function () {
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::controller(FrontendController::class)->group(function () {
     Route::get('/', 'home_page')->name('front.home_page');
     // about_us
     Route::get('/about', 'about_us')->name('front.about_us');
@@ -35,26 +42,50 @@ Route::controller(HomeController::class)->group(function () {
     // Affiliate Program
     Route::get('/affiliate-program', 'affiliate_program')->name('front.affiliate_program');
 });
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        // return view('dashboard');
-        return redirect()->route('backend.admin.dashboard');
-    })->name('dashboard');
-});
 
-
-//======================== admin dashboard routes ========================
-Route::group(['prefix'=>'admin', 'middleware'=>['auth','isAdmin']], function(){
+//======================== Admin Dashboard ========================
+Route::group(['prefix'=>'admin'], function(){
 Route::controller(BackendController::class)->group(function () {
-
 // Admin Dashboard
 Route::get('/dashboard', 'admin_dashboard')->name('backend.admin.dashboard');
+// Contact
+Route::get('/contact', 'admin_contact')->name('backend.admin.contact');
+// User mgmt
+Route::get('/user-mgmt', 'admin_user_mgmt')->name('backend.user.mgmt');
+//admin_video_tutorials
+Route::get('/video-tutorials', 'admin_video_tutorials')->name('backend.video.tutorials');
+// admin_library
+Route::get('/admin-library', 'admin_library')->name('backend.admin.library');
+// create-video
+Route::get('/create-video', 'admin_create_video')->name('backend.create.video');
+// create_library
+
+Route::get('/create-library', 'admin_create_library')->name('backend.create.library');
 
 
-});
-});
-//======================== admin dashboard routes ========================
+
+
+
+    });   
+    });
+
+    // user dashboard
+    
+    Route::group(['prefix'=>'user'], function(){
+        Route::controller(UserDashController::class)->group(function () {
+            // Admin Dashboard
+            Route::get('/dashboard', 'user_dashboard')->name('frontend.user.dashboard');
+            // credit report 
+            Route::get('/credit-report', 'credit_report')->name('frontend.credit_report');
+
+            // Disputes
+            Route::get('/disputes', 'disputes')->name('frontend.disputes');
+            // letter_library
+            Route::get('/letter-library', 'letter_library')->name('frontend.letter.library');
+
+            // video_tutorials
+            Route::get('/video-tutorials', 'video_tutorials')->name('frontend.video.tutorials');
+
+
+            });   
+            });

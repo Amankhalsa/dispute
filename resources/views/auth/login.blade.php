@@ -1,7 +1,6 @@
-
 @extends('frontend.home_master')
 @section('title')
- Privacy
+Login
 @stop
 @section('description', 'Dispute Eraser')
 @section('keywords', 'Dispute Eraser')
@@ -11,7 +10,7 @@
 
 <main>
     <section class="banner banner-inner" id="home">
-<h1 class="text-capitalize text-white">login</h1>
+<h1 class="text-capitalize text-white">@yield('title')</h1>
 </section>
 <div class="container mt-5 mb-5">
 <div class="row">

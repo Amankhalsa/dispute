@@ -1,4 +1,3 @@
-
 @extends('frontend.home_master')
 @section('title')
 Register
@@ -10,7 +9,7 @@ Register
 @section('content')
 
 <section class="banner banner-inner" id="home">
-    <h1 class="text-capitalize text-white">Register</h1>
+    <h1 class="text-capitalize text-white">@yield('title')</h1>
     </section>
     <div class="container ">
         <div class="row">
@@ -21,8 +20,8 @@ Register
             
           </div>
            <div class="col card mt-5 mb-5" style="background-color: rgb(204, 255, 255,0.3);border:none;">
-            <h1 class="text-center mt-5">Register</h1>
-          <form class="row g-3 " style="padding-top: 5px;" method="POST" action="{{ route('register') }}">
+            <h1 class="text-center mt-5">@yield('title')</h1>
+    <form class="row g-3 " style="padding-top: 5px;" method="POST" action="{{ route('register') }}">
        @csrf
              <div class="col-md-6">
           <label for="inputfirstname" class="form-label">First Name</label>
@@ -61,7 +60,7 @@ Register
         </div>
         {{-- confirm  --}}
         <div class="col-md-12">
-          <label for="password_confirmation" class="form-label pt-2">confirma Password</label>
+          <label for="password_confirmation" class="form-label pt-2">Confirm Password</label>
           <input id="password_confirmation" type="password" class="form-control " name="password_confirmation" required=""  autocomplete="new-password">
           @error('password_confirmation')
           <span class="text-danger"> {{$message}}</span>
@@ -79,7 +78,7 @@ Register
       </div>
       </div>
           </div>  
-          </form>
+    </form>
           </div>
         </div>
       </div>
