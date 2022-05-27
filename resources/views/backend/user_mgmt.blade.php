@@ -77,16 +77,16 @@
                                                 <td class="dtr-control sorting_1" tabindex="0">Library1</td>
                                                 <td>&lt;p&gt;Library1&lt;/p&gt;</td>
                                                 <td>
-                                                    <a href="https://dispute.netwingsinfotech.in/admin/library/status/0/4"
+                                                    <a href=""
                                                         class="btn btn-success">Active</a>
                                                 </td>
-                                                <td><a href="https://dispute.netwingsinfotech.in/admin/library/view/4"
+                                                <td><a href=""
                                                         class="btn btn-info"><i
                                                             class="fas fa-eye">&nbsp;</i>View</a>&nbsp;<a
-                                                        href="https://dispute.netwingsinfotech.in/admin/library/edit/4"
+                                                        href=""
                                                         class="btn btn-info"><i
                                                             class="fas fa-edit">&nbsp;</i>Edit</a>&nbsp;<a
-                                                        href="https://dispute.netwingsinfotech.in/admin/library/delete/4"
+                                                        href="#"
                                                         class="btn btn-danger"><i
                                                             class="fas fa-times">&nbsp;</i>Delete</a></td>
                                             </tr>
